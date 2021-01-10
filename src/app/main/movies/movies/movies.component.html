@@ -1,0 +1,31 @@
+<div class="movies-container">
+  <div class="new">
+    <div class="title">
+      <div class="text">🔥Новинки</div>
+    </div>
+
+    <div class="new-items">
+      <div class="new-item" *ngFor="let item of newMovieItems">
+        <div class="image">
+          <img class="preview-poster" [src]="item.previewPoster" alt="">
+        </div>
+        <div class="short-description">{{item.shortDescription}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="genres">
+    <div class="title">Жанры</div>
+    <div class="genre-items">
+      <div class="genre-item">1</div>
+      <div class="genre-item">2</div>
+      <div class="genre-item">3</div>
+      <div class="genre-item">4</div>
+      <div class="genre-item">5</div>
+      <div class="genre-item">6</div>
+      <div class="genre-item">7</div>
+      <div class="genre-item">8</div>
+    </div>
+  </div>
+
+</div>

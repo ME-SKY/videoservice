@@ -1,0 +1,135 @@
+//::-webkit-scrollbar {
+//  width: 10px;
+//}
+//
+///* Track */
+//::-webkit-scrollbar-track {
+//  background: #f1f1f1;
+//}
+//
+///* Handle */
+//::-webkit-scrollbar-thumb {
+//  background: #888;
+//}
+//
+///* Handle on hover */
+//::-webkit-scrollbar-thumb:hover {
+//  background: #555;
+//}
+
+.sign-out{
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  //background: transparent;
+  color: red;
+}
+
+.user-name{
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 2;
+
+}
+
+
+
+.logo{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+
+  .logo-image{
+    display: grid;
+    grid-template: 1fr / 1fr;
+    //display: flex;
+    //flex-flow: row nowrap;
+  }
+
+  .circle{
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    width: 36px;
+    height: 36px;
+    shape-outside: circle();
+    clip-path: circle();
+    background: red;
+    z-index: 3;
+  }
+
+  .triangle{
+    z-index: 4;
+    transform: rotate(88deg);
+    position: relative;
+    background: white;
+    left: 7px;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    width: 36px;
+    height: 36px;
+    shape-outside: polygon(50% 0%, 0% 100%, 100% 100%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+}
+
+.logo-text{
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+}
+
+.search{
+  width: 100%;
+  min-width: 402px;
+  min-height: 25px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-form-field{
+  max-width: 320px;
+}
+
+label{
+  margin-left: 10px;
+  color: red;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.profile{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  button{
+    background: red;
+    color: white;
+  }
+
+  button.sign-out{
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    background: transparent;
+    color: red;
+    border: 0;
+  }
+}

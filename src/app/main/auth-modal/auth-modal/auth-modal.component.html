@@ -1,0 +1,18 @@
+<div class="auth-dialog">
+  <h1 mat-dialog-title>Вход</h1>
+  <div class="auth-inputs" mat-dialog-content>
+    <mat-form-field>
+      <input matInput placeholder="Логин" [formControl]="userName">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Пароль" [formControl]="password">
+    </mat-form-field>
+    <mat-checkbox>Запомнить</mat-checkbox>
+  </div>
+  <div class="login-button">
+    <button mat-button (click)="signIn()">
+      Войти
+    </button>
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+//.mat-tab-nav-bar, .mat-tab-header {
+//  border-bottom: 0;
+//}
+
+header{
+  width: 1180px;
+  margin: 0 auto;
+  //display: flex;
+  //height: 478px;
+}
+
+.main-content{
+  width: 1180px;
+  margin: 0 auto 60px;
+}
+
+footer{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  //width: 100%;
+  height: 120px;
+  background: #F2F2F2;
+}
+
+

@@ -1,0 +1,22 @@
+.login-button{
+  margin-top: auto;
+}
+
+.auth-dialog{
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  //justify-content: ce
+
+  button{
+    background: red;
+    color: white;
+  }
+
+  .auth-inputs{
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  //width: 100%;
+}
