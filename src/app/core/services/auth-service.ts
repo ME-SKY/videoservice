@@ -31,10 +31,6 @@ export class AuthService {
   login(username: string, password: string): void {
 
     const [fName, lName] = username.split(' ', 2);
-    console.log('username is');
-    console.log(username);
-    console.log(fName);
-    console.log(lName);
     localStorage.setItem('currentUser', JSON.stringify({username, password, firstName: fName, lastName: lName}));
     this.currentUserSubject.next({username, password, firstName: fName, lastName: lName});
     this.loggedIn.next(true);

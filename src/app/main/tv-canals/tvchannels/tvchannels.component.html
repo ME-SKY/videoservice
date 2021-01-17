@@ -1,0 +1,25 @@
+<div class="tv-channels-container">
+  <div class="channel" *ngFor="let channel of channels">
+
+    <div class="channel-logo">
+      {{channel.logo}}
+    </div>
+
+    <div class="channel-info">
+      <h2 class="channel-name">{{channel.name}}</h2>
+
+      <div class="channel-programs">
+        <div class="program" *ngFor="let program of channel.programs">
+          <div class="program-time">
+            {{program.time}}
+          </div>
+
+          <div class="program-name">
+            {{program.name}}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

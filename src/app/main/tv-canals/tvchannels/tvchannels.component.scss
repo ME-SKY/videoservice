@@ -1,0 +1,86 @@
+.tv-channels-container{
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.channel{
+  display: flex;
+  flex-flow: row nowrap;
+  width: 1180px;
+  height: 162px;
+  margin: 0 0 16px;
+  box-sizing: border-box;
+  padding: 21px 0 0 0;
+  //padding: 21px 24px 19px 143px;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+
+  .channel-logo{
+    //display: flex;
+    flex: 1 1;
+  }
+
+  .channel-name{
+    margin-bottom: 17px;
+    width: 280px;
+    height: 24px;
+    //margin: 0 476px 3px 143px;
+    font-family: Rubik;
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #333333;
+  }
+
+  .channel-info{
+    flex: 2 1;
+  }
+
+}
+
+.program{
+  margin-bottom: 12px;
+  display: flex;
+  flex-flow: row nowrap;
+
+  &:first-of-type{
+    color: #e5261e;
+  //  margin-top: 17px;
+  }
+
+  //margin-
+
+
+  .program-time{
+    width: 46px;
+    height: 19px;
+    margin-right: 16px;
+    font-family: Rubik, serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    //color: #e5261e;
+  }
+
+  .program-name{
+    width: 694px;
+    height: 19px;
+    font-family: Rubik, serif;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    //color: #e5261e;
+  }
+}

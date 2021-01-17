@@ -1,12 +1,22 @@
 .movies-container {
+  overflow: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  //z-index: 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 1180px;
+  //overflow: ;
   //height: 478px;
   //display: grid;
   //grid-template-columns: repeat(4, 1fr);
 
   .new {
+    overflow-x: hidden;
     display: flex;
     flex-flow: column;
 
@@ -28,9 +38,16 @@
 
 
     .new-items {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;
+      //position: relative;
+      //z-index: 0;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      overflow-x: scroll;
+      //overflow-x: hidden;
+      &::-webkit-scrollbar {
+        display: none;
+      }
       grid-auto-flow: column;
       grid-column-gap: 20px;
     }
@@ -42,6 +59,12 @@
   }
 
   .genres {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 1180px;
+    //disable scrollbar, without functionality
+    overflow-x: hidden;
+
     .title {
       width: 134px;
       height: 28px;
@@ -56,11 +79,28 @@
     }
 
     .genre-items {
+      //disable scrollbar, without functionality
+      //overflow-x: hidden;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      overflow-x: scroll;
       grid-auto-flow: column;
       grid-column-gap: 20px;
+
+      //disable scrollbar, without functionality
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      //.example {
+      //
+      //}
+
+
+
 
       .genre-item {
         height: 208px;
@@ -88,4 +128,9 @@
   line-height: 24px;
   color: #333333;
 }
+
+//.scrollbar{
+//  z-index: 1;
+//  background: coral;
+//}
 

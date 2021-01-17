@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MainModule} from './main/main.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScrollbarDirective } from './core/directives/scrollbar.directive';
+import { ScrollBarComponent } from './main/scroll-bar/scroll-bar/scroll-bar.component';
+import {ScrollBarModule} from './main/scroll-bar/scroll-bar.module';
 // import { NameFirstLetterPipe } from './core/pipes/name-first-letter.pipe';
 
 // import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -25,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
+    // ScrollBarComponent,
     // NameFirstLetterPipe
   ],
   imports: [
