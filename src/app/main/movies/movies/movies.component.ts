@@ -11,7 +11,7 @@ import {OwlOptions} from 'ngx-owl-carousel-o';
 })
 export class MoviesComponent implements OnInit {
 
-  posterUrl = '../../../../assets/lokiposter.jpg';
+  posterUrl = 'assets/lokiposter.jpg';
 
   customOptions: OwlOptions = {
     items: 4,
