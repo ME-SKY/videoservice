@@ -22,8 +22,14 @@ export class MovieComponent implements OnInit {
   constructor(private dataService: DataService,
               private route: ActivatedRoute,
               private authService: AuthService) {
-    this.currentUser = this.authService.currentUserValue as User;
-
+    this.authService.currentUser.subscribe(user => {
+      this.currentUser = user as IUser;
+      if(!this.currentUser) {
+        this.commentControl.disable();
+      } else {
+        this.commentControl.enable()
+      }
+    })
   }
 
   ngOnInit(): void {
@@ -47,6 +53,7 @@ export class MovieComponent implements OnInit {
     this.movie.comments.unshift(comment);
 
     this.dataService.saveComments(this.movie.id, this.movie.comments);
+    this.commentControl.patchValue('')
   }
 
   removeComment(commentId: number) {

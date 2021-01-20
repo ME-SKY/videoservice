@@ -42,7 +42,7 @@
         <textarea name="" id="" placeholder="Введите комментарий..." [formControl]="commentControl"></textarea>
       </div>
 
-      <button class="publish-button" mat-button (click)="saveComment()">
+      <button [disabled]="!currentUser" class="publish-button" mat-button (click)="saveComment()">
         Опубликовать
       </button>
     </div>
@@ -61,7 +61,7 @@
       </div>
 
       <div class="remove-comment-button"
-           *ngIf="comment.userId === currentUser.id"
+           *ngIf="currentUser && comment.userId === currentUser.id"
            (click)="removeComment(comment.id)">
       </div>
     </div>

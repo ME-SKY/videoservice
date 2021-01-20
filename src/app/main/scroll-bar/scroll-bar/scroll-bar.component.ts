@@ -1,13 +1,7 @@
-import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, Host, HostListener, Input, OnInit, ViewChild} from '@angular/core';
-import {from, fromEvent, of, timer} from 'rxjs';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {timer} from 'rxjs';
 
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition,
-} from '@angular/animations';
+import {animate, state, style, transition, trigger,} from '@angular/animations';
 
 //TODO refactor this component
 
@@ -44,39 +38,40 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
 
   isScrolled = false;
   mouseOverTrumb = false;
-  horizontalThumbActive = false ;
-  verticalThumbActive = false ;
+  horizontalThumbActive = false;
+  verticalThumbActive = false;
   scrollBarDragged = false;
   horizontalThumbDragOffset: number;
   verticalThumbDragOffset: number;
 
 
-  constructor(private cdref: ChangeDetectorRef) { }
+  constructor(private cdref: ChangeDetectorRef) {
+  }
 
   ngOnInit(): void {
   }
 
   // @ts-ignore
-  horizontalScrollInPercents(scrollLeft, scrollWidth, clientWidth){
+  horizontalScrollInPercents(scrollLeft, scrollWidth, clientWidth) {
     this.info.percentsScroll = scrollLeft / (scrollWidth - clientWidth);
   }
 
   //vertical
 // @ts-ignore
-  verticalScrollInPercents(scrollTop, scrollHeight, clientHeight){
+  verticalScrollInPercents(scrollTop, scrollHeight, clientHeight) {
     this.info.percentsScroll = scrollTop / (scrollHeight - clientHeight);
   }
 
-  mouseOverToggle(isOver: boolean){
+  mouseOverToggle(isOver: boolean) {
     this.mouseOverTrumb = isOver;
   }
 
   // (wheel)="wheeled()" on #bar
-  wheeled(){
+  wheeled() {
     console.log(this.info.horizontalPosition);
 
     // let delta = this.info.horizontalPosition -
-    if(this.info.horizontalPosition == 0 || this.info.horizontalPosition == 100 || this.info.horizontalPosition == undefined){
+    if (this.info.horizontalPosition == 0 || this.info.horizontalPosition == 100 || this.info.horizontalPosition == undefined) {
       this.horizontalThumbActive = true;
       this.isScrolled = true;
 
@@ -90,7 +85,7 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
 
 
   ngAfterViewInit() {
-    const { clientWidth, scrollWidth } = this.bar.nativeElement;
+    const {clientWidth, scrollWidth} = this.bar.nativeElement;
 
     // for vertical
     const {clientHeight, scrollHeight} = this.bar.nativeElement;
@@ -101,7 +96,7 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
     this.cdref.detectChanges();
   }
 
-  horizontalScrolledF(){
+  horizontalScrolledF() {
     const {
       scrollLeft,
       scrollWidth,
@@ -113,7 +108,7 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
   }
 
   horizontalSizeF(): number {
-    const { clientWidth, scrollWidth } = this.bar.nativeElement;
+    const {clientWidth, scrollWidth} = this.bar.nativeElement;
 
     this.info.horizontalSize = Math.ceil(clientWidth / scrollWidth * 100);
     return Math.ceil(clientWidth / scrollWidth * 100);
@@ -131,57 +126,22 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
     return this.horizontalSizeF() < 100;
   }
 
-
-
-  // tslint:disable-next-line:typedef
-  // setScrollInfo(event: any) {
-  //
-  //   this.horizontalThumbActive = true;
-  //   this.isScrolled = true;
-  //
-  //   timer(300).pipe(
-  //   ).subscribe(x => {
-  //     this.isScrolled = false;
-  //     this.horizontalThumbActive = false;
-  //   });
-  //
-  //   this.horizontalScrolledF();
-  //   this.horizontalSizeF();
-  //   this.horizontalPositionF();
-  //   this.hasHorizontalBarF();
-  //
-  //   this.horizontalScrollInPercents(event.target.scrollLeft, event.target.scrollWidth, event.target.clientWidth)
-  //
-  //
-  //   this.info.clientX = event.clientX;
-  //   // @ts-ignore
-  //   this.info.targetScrollLeft = event.target.scrollLeft;
-  //
-  // }
-
-  // @HostListener('document:mouseup')
-  // // tslint:disable-next-line:typedef
-  // onDragEnd() {
-  //   this.horizontalThumbActive = false;
-  //   this.scrollBarDragged = false;
-  // }
-
   // tslint:disable-next-line:typedef
   onHorizontalStart(event: MouseEvent) {
     this.scrollBarDragged = true;
     event.preventDefault();
 
-    const { target, clientX } = event;
+    const {target, clientX} = event;
     // @ts-ignore
-    const { left, width } = target.getBoundingClientRect();
+    const {left, width} = target.getBoundingClientRect();
 
     this.horizontalThumbDragOffset = (clientX - left) / width;
     this.horizontalThumbActive = true;
   }
 
   onHorizontalMove(
-    { clientX }: MouseEvent,
-    { offsetWidth }: HTMLElement,
+    {clientX}: MouseEvent,
+    {offsetWidth}: HTMLElement,
     target: any
   ) {
 
@@ -189,8 +149,8 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    const { nativeElement } = this.bar;
-    const { left, width } = nativeElement.getBoundingClientRect();
+    const {nativeElement} = this.bar;
+    const {left, width} = nativeElement.getBoundingClientRect();
     const maxScrollLeft = nativeElement.scrollWidth - width;
     const scrolled =
       (clientX - left - offsetWidth * this.horizontalThumbDragOffset) /
@@ -201,7 +161,7 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
 
 //  vertical part
 
-  verticalScrolledF(){
+  verticalScrolledF() {
     const {
       scrollTop,
       scrollHeight,
@@ -214,7 +174,7 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
   }
 
   verticalSizeF(): number {
-    const { clientHeight, scrollHeight } = this.bar.nativeElement;
+    const {clientHeight, scrollHeight} = this.bar.nativeElement;
 
     this.info.verticalSize = Math.ceil(clientHeight / scrollHeight * 100);
     return Math.ceil(clientHeight / scrollHeight * 100);
@@ -233,11 +193,9 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
   }
 
 
-
-  // tslint:disable-next-line:typedef
   setScrollInfo(event: any) {
 
-    if(this.axis === 'vertical'){
+    if (this.axis === 'vertical') {
       this.verticalThumbActive = true;
       this.isScrolled = true;
 
@@ -252,11 +210,10 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
       this.verticalPositionF();
       this.hasVerticalBarF();
 
-      this.verticalScrollInPercents(event.target.scrollLeft, event.target.scrollWidth, event.target.clientWidth)
+      this.verticalScrollInPercents(event.target.scrollLeft, event.target.scrollWidth, event.target.clientWidth);
 
 
       this.info.clientY = event.clientY;
-      // @ts-ignore
       this.info.targetscrollTop = event.target.scrollTop;
     } else {
       this.horizontalThumbActive = true;
@@ -273,19 +230,17 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
       this.horizontalPositionF();
       this.hasHorizontalBarF();
 
-      this.horizontalScrollInPercents(event.target.scrollLeft, event.target.scrollWidth, event.target.clientWidth)
+      this.horizontalScrollInPercents(event.target.scrollLeft, event.target.scrollWidth, event.target.clientWidth);
 
 
       this.info.clientX = event.clientX;
-      // @ts-ignore
       this.info.targetScrollLeft = event.target.scrollLeft;
     }
   }
 
   @HostListener('document:mouseup')
-  // tslint:disable-next-line:typedef
   onDragEnd() {
-    if(this.axis === 'vertical'){
+    if (this.axis === 'vertical') {
       this.verticalThumbActive = false;
     } else {
       this.horizontalThumbActive = false;
@@ -294,22 +249,21 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
     this.scrollBarDragged = false;
   }
 
-  // tslint:disable-next-line:typedef
   onVerticalStart(event: MouseEvent) {
     this.scrollBarDragged = true;
     event.preventDefault();
 
-    const { target, clientY } = event;
+    const {target, clientY} = event;
     // @ts-ignore
-    const { up, height } = target.getBoundingClientRect();
+    const {top, height} = target.getBoundingClientRect();
 
-    this.verticalThumbDragOffset = (clientY - up) / height;
+    this.verticalThumbDragOffset = (clientY - top) / height;
     this.verticalThumbActive = true;
   }
 
   onVerticalMove(
-    { clientY }: MouseEvent,
-    { offsetHeight }: HTMLElement,
+    {clientY}: MouseEvent,
+    {offsetHeight}: HTMLElement,
     target: any
   ) {
 
@@ -317,11 +271,11 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
       return;
     }
 
-    const { nativeElement } = this.bar;
-    const { up, height } = nativeElement.getBoundingClientRect();
+    const {nativeElement} = this.bar;
+    const {top, height} = nativeElement.getBoundingClientRect();
     const maxscrollTop = nativeElement.scrollHeight - height;
     const scrolled =
-      (clientY - up - offsetHeight * this.verticalThumbDragOffset) /
+      (clientY - top - offsetHeight * this.verticalThumbDragOffset) /
       (height - offsetHeight);
 
     nativeElement.scrollTop = maxscrollTop * scrolled;

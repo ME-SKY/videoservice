@@ -38,8 +38,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private searchService: SearchService) {
 
     this.authService.loggedIn.subscribe(x => {
+      this.userAuthenticated = x;
       if (x) {
-        this.userAuthenticated = x;
         this.user = this.authService.currentUserValue as User;
         const username = `${this.user.firstName} ${nFirstLetterPipe.transform(this.user.lastName)}`;
         this.changingUserNameControl.setValue(username, {emitEvent: false});
