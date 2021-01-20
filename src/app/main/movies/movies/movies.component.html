@@ -1,39 +1,48 @@
 <div class="movies-container">
+
   <div class="new">
     <div class="title">
       <div class="text">🔥Новинки</div>
     </div>
 
-    <app-scroll-bar [scrollBarWidth]="1180" >
+
     <div class="new-items">
-      <div class="new-item" *ngFor="let item of newMovieItems" [routerLink]="'/movie/' + item.id">
-        <div class="image">
-          <img class="preview-poster" [src]="item.previewPoster" alt="">
-        </div>
-        <div class="short-description">{{item.shortDescription}}</div>
-      </div>
+
+      <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging" [style.width.px]="1180">
+
+        <ng-container *ngFor="let item of (filteredMovies$ | async)">
+
+          <ng-template carouselSlide>
+            <div class="new-item slider-item" [owlRouterLink]="'/movie/' + item.id" [stopLink]="isDragging">
+              <div class="image">
+                <img class="preview-poster" [src]="item.previewPoster" alt="">
+                <div class="movie-description">{{item.description}}</div>
+              </div>
+              <div class="short-description remove-to-name">{{item.name}}</div>
+            </div>
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o>
     </div>
-    </app-scroll-bar>
   </div>
-
-
 
   <div class="genres">
     <div class="title">Жанры</div>
 
-    <app-scroll-bar [scrollBarWidth]="1180" >
+    <app-scroll-bar [scrollBarWidth]="1180">
+
       <div class="genre-items">
-        <div class="genre-item">1</div>
-        <div class="genre-item">2</div>
-        <div class="genre-item">3</div>
-        <div class="genre-item">4</div>
-        <div class="genre-item">5</div>
-        <div class="genre-item">6</div>
-        <div class="genre-item">7</div>
-        <div class="genre-item">8</div>
+
+        <div class="genre-item" *ngFor="let genre of genreItems">
+          <div class="genre-icon">
+            {{genre.icon}}
+          </div>
+          <div class="genre-name">
+            {{genre.name}}
+          </div>
+        </div>
       </div>
     </app-scroll-bar>
-
   </div>
-
 </div>

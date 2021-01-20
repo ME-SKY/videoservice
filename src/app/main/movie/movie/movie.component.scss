@@ -1,9 +1,8 @@
-.movie-container{
+.movie-container {
   margin-top: 52px;
 }
 
-
-//movie
+//movie part
 
 .movie {
   margin-bottom: 48px;
@@ -19,17 +18,16 @@
   height: 370px;
   margin: 0 120px 0 97px;
 
-  img{
+  img {
     width: 280px;
     height: 370px;
   }
-
 }
 
 .movie-info {
   height: 370px;
 
-  .name, .country, .genre{
+  .name, .country, .genre {
     width: 584px;
     height: 24px;
     display: flex;
@@ -38,14 +36,8 @@
     margin-bottom: 16px;
 
 
-    .info-content{
-
-      //&:{
-      //  font-weight: 500;
-      //}
-      //height: 24px;
-      //margin: 0 0 16px 24px;
-      font-family: Rubik;
+    .info-content {
+      font-family: Rubik, serif;
       font-size: 20px;
       font-weight: normal;
       font-stretch: normal;
@@ -55,67 +47,35 @@
       text-align: left;
       color: #333333;
     }
-    //width: 80px;
-    //height: 19px;
-    ////margin: 4px 24px 17px 120px;
-    //font-family: Rubik;
-    //font-size: 16px;
-    //font-weight: normal;
-    //font-stretch: normal;
-    //font-style: normal;
-    //line-height: normal;
-    //letter-spacing: normal;
-    //text-align: left;
-    //color: #333333;
-
   }
 
-  .country{
-    //width: 80px;
-    //height: 19px;
-    ////margin: 4px 24px 17px 120px;
-    //font-family: Rubik;
-    //font-size: 16px;
-    //font-weight: normal;
-    //font-stretch: normal;
-    //font-style: normal;
-    //line-height: normal;
-    //letter-spacing: normal;
-    //text-align: left;
-    //color: #333333;
-  }
-
-  .genre{
-
-  }
-
-  .name{
-    .info-content{
+  .name {
+    .info-content {
       font-weight: 700;
     }
   }
 }
 
-.info-title{
+.info-title {
   width: 80px;
   margin-right: 24px;
 }
 
-.description{
+.description {
   margin-top: 23px;
 }
 
-//comments
+//comments part
 
-.comments{
+.comments {
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
 
-  .comments-title{
+  .comments-title {
     width: 137px;
     height: 24px;
-    font-family: Rubik;
+    font-family: Rubik, serif;
     font-size: 20px;
     font-weight: 500;
     font-stretch: normal;
@@ -127,15 +87,15 @@
     margin-bottom: 24px;
   }
 
-  .comment-block{
+  .comment-block {
     margin-top: 16px;
     display: flex;
     flex-flow: row nowrap;
     margin-left: 15px;
-    .comment{
+
+    .comment {
       box-sizing: border-box;
       width: 780px;
-      //height: 135px;
       padding: 16px;
       border-radius: 8px;
       background-color: #f2f2f2;
@@ -143,19 +103,20 @@
       display: flex;
       flex-flow: column nowrap;
 
-      .comment-username{
+      .comment-username {
 
         height: 19px;
         margin-bottom: 8px;
       }
 
-      .comment-text{
+      .comment-text {
         min-height: 19px;
       }
     }
 
-    .remove-comment-button{
+    .remove-comment-button {
       position: relative;
+
       &:after {
         position: absolute;
         top: 0;
@@ -171,27 +132,64 @@
     }
   }
 
-  .comment-input{
+  .comment-input {
     display: flex;
     flex-flow: row nowrap;
     margin-left: 190px;
-    //display: grid;
-    //flex-flow: row nowrap;
-    .input{
+
+    .input {
       width: 780px;
       height: 110px;
       margin: 0 16px 0 0;
-      //padding: 16px 579px 75px 16px;
-      opacity: 0.15;
       border-radius: 8px;
-      background-color: #e5261e;
+      background: rgba(#e5261e, 0.15);
+
+      textarea {
+        margin: 16px;
+        width: 748px;
+        height: 78px;
+        background: transparent;
+        border: none;
+        overflow: auto;
+        outline: none;
+
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+
+        resize: none;
+
+        font-family: Rubik;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #333333;
+
+        &::placeholder {
+          color: #e5261e;
+        }
+      }
     }
 
-    .publish-button{
+    .publish-button {
       width: 174px;
       height: 38px;
       color: white;
       background: red;
     }
   }
+}
+
+.back-button {
+  color: red;
+  height: 20px;
+  width: 20px;
+  transform: scale(1.5) scaleY(1.8);
+  cursor: w-resize;
+  outline: none;
+  user-select: none;
 }

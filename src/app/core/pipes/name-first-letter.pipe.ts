@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NameFirstLetterPipe implements PipeTransform {
 
-  transform(value: string, withDot: boolean = true): string {
+  transform(value: string | undefined, withDot: boolean = true): string {
     if (withDot && value){
       return value.charAt(0) + (withDot ? '.' : '');
     } else {

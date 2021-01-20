@@ -12,7 +12,7 @@ export class DataResolverService implements Resolve <Observable<any>>{
   constructor(private ds: DataService) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    return this.ds.getData(route.params.id).pipe(
+    return this.ds.getData(parseInt(route.params.id, 10)).pipe(
       take(1),
       map(movieData => movieData)
     )

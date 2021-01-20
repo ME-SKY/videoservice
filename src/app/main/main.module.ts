@@ -26,7 +26,6 @@ import {MovieModule} from './movie/movie.module';
     TvCanalsModule,
     MovieModule,
     RouterModule,
-    // ScrollBarModule
   ],
   exports: [
     MainComponent

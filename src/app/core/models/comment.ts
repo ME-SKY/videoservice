@@ -1,6 +1,6 @@
 export interface Comment {
   id: number,
-  user: number,
+  userId: number,
   username: string,
   commentText: string
 }

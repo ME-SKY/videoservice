@@ -8,12 +8,11 @@
     <div class="logo-text">
       Видеоcервис
     </div>
-<!--    <img src="../../../../assets/logo.png" alt="">-->
   </div>
+
   <div class="search">
     <mat-form-field class="search-form-field">
-      <input id="search" name="search" matInput type="text" placeholder="Поиск...">
-
+      <input id="search" name="search" matInput type="text" placeholder="Поиск..." [formControl]="searchControl">
     </mat-form-field>
     <label>Найти</label>
   </div>
@@ -26,9 +25,14 @@
 
     <ng-template #authenticated>
       <div class="user-name" (click)="changeName()">
-        {{user.firstName}} {{user.lastName | nameFirstLetter}}
+        <input type="text" matInput
+               [readonly]="!changingUserName"
+               [formControl]="changingUserNameControl"
+               (keydown.enter)="saveName()"
+               (focusout)="saveName()">
       </div>
-      <button class="sign-out" (click)="singOut()" >
+
+      <button class="sign-out" (click)="singOut()">
         Выйти
       </button>
     </ng-template>

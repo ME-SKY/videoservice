@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Movie} from '../../../core/models/movie';
 import {DataService} from '../../../core/services/data.service';
 import {ActivatedRoute} from '@angular/router';
+import {FormControl} from '@angular/forms';
+import {Comment} from '@src-app/core/models/comment';
+import {IUser, User} from '@src-app/core/models/user';
+import {AuthService} from '@src-app/core/services/auth-service';
 
 @Component({
   selector: 'app-movie',
@@ -10,56 +14,44 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class MovieComponent implements OnInit {
 
+  movie: Movie;
+  currentUser: IUser;
 
-  movieFake: Movie = {
-    id: 8493,
-    name: 'Loki',
-    description: 'A film about god Loki, A film about god Loki, A film about god Loki, ' +
-      'A film about god Loki, A film about god Loki, A film about god Loki,' +
-      ' A film about god Loki, A film about god Loki, A film about god Loki',
-    genre: 'fantasy',
-    country: 'USA',
-    moviePosterUrl: '../../../../assets/lokiposter.jpg',
-    comments: [
-      {
-        id: 1,
-        user: 5,
-        username: 'Jojo',
-        commentText: 'Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film'
-      },
-      {
-        id: 2,
-        user: 2,
-        username: 'Jojo2',
-        commentText: 'Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film'
-      },
-      {
-        id: 3,
-        user: 4,
-        username: 'Jojo3',
-        commentText: 'Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film'
-      }
-    ]
-  };
+  commentControl = new FormControl('');
 
-  movie: Movie = this.movieFake;
+  constructor(private dataService: DataService,
+              private route: ActivatedRoute,
+              private authService: AuthService) {
+    this.currentUser = this.authService.currentUserValue as User;
 
-  // comments = [];
-  constructor( private dataService: DataService,
-               private route: ActivatedRoute) { }
+  }
 
   ngOnInit(): void {
-    if(this.route.snapshot.data.movie){
-      console.log('it exists');
-      console.log(this.route.snapshot.data.movie);
-      this.movie = this.route.snapshot.data.movie
+    this.movie = this.route.snapshot.data.movieData;
+    let comments = this.dataService.getCommentsFromStorage(this.movie.id);
+    if (!comments) {
+      this.dataService.saveComments(this.movie.id, this.movie.comments);
     } else {
-      this.dataService.putDataInStorageWithoutObservable(this.movieFake, this.movieFake.id)
-      // this.dataService.putDataInStorage(this.movie).subscribe(() => {
-      //
-      // })
+      this.movie.comments = comments;
     }
-    // this.dataService.putDataInStorage(this.movie)
+  }
+
+  saveComment() {
+    const id = Math.max(...this.movie.comments.map(cm => cm.id)) + 1;
+    const comment: Comment = {
+      id: id,
+      userId: this.currentUser.id,
+      username: this.currentUser.username,
+      commentText: this.commentControl.value
+    };
+    this.movie.comments.unshift(comment);
+
+    this.dataService.saveComments(this.movie.id, this.movie.comments);
+  }
+
+  removeComment(commentId: number) {
+    this.movie.comments = this.movie.comments.filter(x => x.id !== commentId);
+    this.dataService.saveComments(this.movie.id, this.movie.comments);
   }
 
 }

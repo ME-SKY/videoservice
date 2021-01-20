@@ -1,0 +1,226 @@
+[
+  {
+    "id":1,
+    "name":"SomeName1",
+    "description":"A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki",
+    "genre":"fantasy",
+    "country":"USA",
+    "moviePosterUrl":"../../../../assets/lokiposter.jpg",
+    "comments":[
+      {
+        "id":1,
+        "userId":5,
+        "username":"Jojo",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":2,
+        "userId":2,
+        "username":"Jojo2",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":3,
+        "userId":4,
+        "username":"Jojo3",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      }
+    ]
+  },
+  {
+    "id":2,
+    "name":"SomeName2",
+    "description":"A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki",
+    "genre":"fantasy",
+    "country":"USA",
+    "moviePosterUrl":"../../../../assets/lokiposter.jpg",
+    "comments":[
+      {
+        "id":1,
+        "userId":5,
+        "username":"Jojo",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":2,
+        "userId":2,
+        "username":"Jojo2",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":3,
+        "userId":4,
+        "username":"Jojo3",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      }
+    ]
+  },
+  {
+    "id":3,
+    "name":"SomeName3",
+    "description":"A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki",
+    "genre":"fantasy",
+    "country":"USA",
+    "moviePosterUrl":"../../../../assets/lokiposter.jpg",
+    "comments":[
+      {
+        "id":1,
+        "userId":5,
+        "username":"Jojo",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":2,
+        "userId":2,
+        "username":"Jojo2",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":3,
+        "userId":4,
+        "username":"Jojo3",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      }
+    ]
+  },
+  {
+    "id":4,
+    "name":"SomeName4",
+    "description":"A film about god Loki, A film about god Loki, A film about god Loki,A film about god Loki, A film about god Loki, A film about god Loki,A film about god Loki, A film about god Loki, A film about god Loki",
+    "genre":"fantasy",
+    "country":"USA",
+    "moviePosterUrl":"../../../../assets/lokiposter.jpg",
+    "comments":[
+      {
+        "id":1,
+        "userId":5,
+        "username":"Jojo",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":2,
+        "userId":2,
+        "username":"Jojo2",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":3,
+        "userId":4,
+        "username":"Jojo3",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      }
+    ]
+  },
+  {
+    "id":5,
+    "name":"SomeName5",
+    "description":"A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki",
+    "genre":"fantasy",
+    "country":"USA",
+    "moviePosterUrl":"../../../../assets/lokiposter.jpg",
+    "comments":[
+      {
+        "id":1,
+        "userId":5,
+        "username":"Jojo",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":2,
+        "userId":2,
+        "username":"Jojo2",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":3,
+        "userId":4,
+        "username":"Jojo3",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      }
+    ]
+  },
+  {
+    "id":6,
+    "name":"SomeName6",
+    "description":"A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki",
+    "genre":"fantasy",
+    "country":"USA",
+    "moviePosterUrl":"../../../../assets/lokiposter.jpg",
+    "comments":[
+      {
+        "id":1,
+        "userId":5,
+        "username":"Jojo",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":2,
+        "userId":2,
+        "username":"Jojo2",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":3,
+        "userId":4,
+        "username":"Jojo3",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      }
+    ]
+  },
+  {
+    "id":7,
+    "name":"SomeName7",
+    "description":"A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki",
+    "genre":"fantasy",
+    "country":"USA",
+    "moviePosterUrl":"../../../../assets/lokiposter.jpg",
+    "comments":[
+      {
+        "id":1,
+        "userId":5,
+        "username":"Jojo",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":2,
+        "userId":2,
+        "username":"Jojo2",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":3,
+        "userId":4,
+        "username":"Jojo3",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      }
+    ]
+  },
+  {
+    "id":8,
+    "name":"SomeName8",
+    "description":"A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki, A film about god Loki",
+    "genre":"fantasy",
+    "country":"USA",
+    "moviePosterUrl":"../../../../assets/lokiposter.jpg",
+    "comments":[
+      {
+        "id":1,
+        "userId":5,
+        "username":"Jojo",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":2,
+        "userId":2,
+        "username":"Jojo2",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      },
+      {
+        "id":3,
+        "userId":4,
+        "username":"Jojo3",
+        "commentText":"Good film, Good filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood filmGood film"
+      }
+    ]
+  }
+]

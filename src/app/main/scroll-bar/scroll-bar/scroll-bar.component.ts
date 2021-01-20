@@ -9,6 +9,8 @@ import {
   transition,
 } from '@angular/animations';
 
+//TODO refactor this component
+
 @Component({
   selector: 'app-scroll-bar',
   templateUrl: './scroll-bar.component.html',
@@ -29,18 +31,24 @@ import {
 export class ScrollBarComponent implements OnInit, AfterViewInit {
 
 
+  // private defaultAxis = 'horizontal';
   @Input() scrollBarWidth!: number;
+  @Input() scrollBarHeight!: number;
+  @Input() axis: 'vertical' | 'horizontal' = 'horizontal';
 
   info: any = {};
 
   @ViewChild('bar') bar: ElementRef;
   @ViewChild('horizontal') horizontal: ElementRef;
+  @ViewChild('vertical') vertical: ElementRef;
 
   isScrolled = false;
   mouseOverTrumb = false;
   horizontalThumbActive = false ;
+  verticalThumbActive = false ;
   scrollBarDragged = false;
   horizontalThumbDragOffset: number;
+  verticalThumbDragOffset: number;
 
 
   constructor(private cdref: ChangeDetectorRef) { }
@@ -51,6 +59,12 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
   // @ts-ignore
   horizontalScrollInPercents(scrollLeft, scrollWidth, clientWidth){
     this.info.percentsScroll = scrollLeft / (scrollWidth - clientWidth);
+  }
+
+  //vertical
+// @ts-ignore
+  verticalScrollInPercents(scrollTop, scrollHeight, clientHeight){
+    this.info.percentsScroll = scrollTop / (scrollHeight - clientHeight);
   }
 
   mouseOverToggle(isOver: boolean){
@@ -78,10 +92,12 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     const { clientWidth, scrollWidth } = this.bar.nativeElement;
 
-    // this.bar.nativeElement.onscroll = function(){
-      // console.log('scrolled in function listener');
-    // }
+    // for vertical
+    const {clientHeight, scrollHeight} = this.bar.nativeElement;
+
     this.info.horizontalSize = Math.ceil(clientWidth / scrollWidth * 100);
+    // for vertical
+    this.info.verticalSize = Math.ceil(clientHeight / scrollHeight * 100);
     this.cdref.detectChanges();
   }
 
@@ -118,37 +134,37 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
 
 
   // tslint:disable-next-line:typedef
-  setScrollInfo(event: any) {
+  // setScrollInfo(event: any) {
+  //
+  //   this.horizontalThumbActive = true;
+  //   this.isScrolled = true;
+  //
+  //   timer(300).pipe(
+  //   ).subscribe(x => {
+  //     this.isScrolled = false;
+  //     this.horizontalThumbActive = false;
+  //   });
+  //
+  //   this.horizontalScrolledF();
+  //   this.horizontalSizeF();
+  //   this.horizontalPositionF();
+  //   this.hasHorizontalBarF();
+  //
+  //   this.horizontalScrollInPercents(event.target.scrollLeft, event.target.scrollWidth, event.target.clientWidth)
+  //
+  //
+  //   this.info.clientX = event.clientX;
+  //   // @ts-ignore
+  //   this.info.targetScrollLeft = event.target.scrollLeft;
+  //
+  // }
 
-    this.horizontalThumbActive = true;
-    this.isScrolled = true;
-
-    timer(300).pipe(
-    ).subscribe(x => {
-      this.isScrolled = false;
-      this.horizontalThumbActive = false;
-    });
-
-    this.horizontalScrolledF();
-    this.horizontalSizeF();
-    this.horizontalPositionF();
-    this.hasHorizontalBarF();
-
-    this.horizontalScrollInPercents(event.target.scrollLeft, event.target.scrollWidth, event.target.clientWidth)
-
-
-    this.info.clientX = event.clientX;
-    // @ts-ignore
-    this.info.targetScrollLeft = event.target.scrollLeft;
-
-  }
-
-  @HostListener('document:mouseup')
-  // tslint:disable-next-line:typedef
-  onDragEnd() {
-    this.horizontalThumbActive = false;
-    this.scrollBarDragged = false;
-  }
+  // @HostListener('document:mouseup')
+  // // tslint:disable-next-line:typedef
+  // onDragEnd() {
+  //   this.horizontalThumbActive = false;
+  //   this.scrollBarDragged = false;
+  // }
 
   // tslint:disable-next-line:typedef
   onHorizontalStart(event: MouseEvent) {
@@ -182,4 +198,133 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
 
     nativeElement.scrollLeft = maxScrollLeft * scrolled;
   }
+
+//  vertical part
+
+  verticalScrolledF(){
+    const {
+      scrollTop,
+      scrollHeight,
+      clientHeight
+    } = this.bar.nativeElement;
+
+    this.info.verticalScrolled = scrollTop / (scrollHeight - clientHeight);
+    console.log(this.info.verticalScrolled);
+    return this.info.verticalScrolled;
+  }
+
+  verticalSizeF(): number {
+    const { clientHeight, scrollHeight } = this.bar.nativeElement;
+
+    this.info.verticalSize = Math.ceil(clientHeight / scrollHeight * 100);
+    return Math.ceil(clientHeight / scrollHeight * 100);
+  }
+
+  // Thumb position from the left in percents
+  verticalPositionF(): number {
+    this.info.verticalPosition = this.verticalScrolledF() * (100 - this.verticalSizeF());
+    return this.verticalScrolledF() * (100 - this.verticalSizeF());
+  }
+
+  // Content overflown, we see thumb
+  hasVerticalBarF(): boolean {
+    this.info.hasVerticalBar = this.verticalSizeF() < 100;
+    return this.verticalSizeF() < 100;
+  }
+
+
+
+  // tslint:disable-next-line:typedef
+  setScrollInfo(event: any) {
+
+    if(this.axis === 'vertical'){
+      this.verticalThumbActive = true;
+      this.isScrolled = true;
+
+      timer(300).pipe(
+      ).subscribe(x => {
+        this.isScrolled = false;
+        this.verticalThumbActive = false;
+      });
+
+      this.verticalScrolledF();
+      this.verticalSizeF();
+      this.verticalPositionF();
+      this.hasVerticalBarF();
+
+      this.verticalScrollInPercents(event.target.scrollLeft, event.target.scrollWidth, event.target.clientWidth)
+
+
+      this.info.clientY = event.clientY;
+      // @ts-ignore
+      this.info.targetscrollTop = event.target.scrollTop;
+    } else {
+      this.horizontalThumbActive = true;
+      this.isScrolled = true;
+
+      timer(300).pipe(
+      ).subscribe(x => {
+        this.isScrolled = false;
+        this.horizontalThumbActive = false;
+      });
+
+      this.horizontalScrolledF();
+      this.horizontalSizeF();
+      this.horizontalPositionF();
+      this.hasHorizontalBarF();
+
+      this.horizontalScrollInPercents(event.target.scrollLeft, event.target.scrollWidth, event.target.clientWidth)
+
+
+      this.info.clientX = event.clientX;
+      // @ts-ignore
+      this.info.targetScrollLeft = event.target.scrollLeft;
+    }
+  }
+
+  @HostListener('document:mouseup')
+  // tslint:disable-next-line:typedef
+  onDragEnd() {
+    if(this.axis === 'vertical'){
+      this.verticalThumbActive = false;
+    } else {
+      this.horizontalThumbActive = false;
+    }
+
+    this.scrollBarDragged = false;
+  }
+
+  // tslint:disable-next-line:typedef
+  onVerticalStart(event: MouseEvent) {
+    this.scrollBarDragged = true;
+    event.preventDefault();
+
+    const { target, clientY } = event;
+    // @ts-ignore
+    const { up, height } = target.getBoundingClientRect();
+
+    this.verticalThumbDragOffset = (clientY - up) / height;
+    this.verticalThumbActive = true;
+  }
+
+  onVerticalMove(
+    { clientY }: MouseEvent,
+    { offsetHeight }: HTMLElement,
+    target: any
+  ) {
+
+    if (!this.verticalThumbActive && !this.scrollBarDragged) {
+      return;
+    }
+
+    const { nativeElement } = this.bar;
+    const { up, height } = nativeElement.getBoundingClientRect();
+    const maxscrollTop = nativeElement.scrollHeight - height;
+    const scrolled =
+      (clientY - up - offsetHeight * this.verticalThumbDragOffset) /
+      (height - offsetHeight);
+
+    nativeElement.scrollTop = maxscrollTop * scrolled;
+  }
+
 }

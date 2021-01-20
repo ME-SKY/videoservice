@@ -1,19 +1,17 @@
 .movies-container {
   overflow: hidden;
-  -ms-overflow-style: none;  /* IE and Edge */
+  -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
+
   //z-index: 0;
   position: relative;
   display: flex;
   flex-direction: column;
   width: 1180px;
-  //overflow: ;
-  //height: 478px;
-  //display: grid;
-  //grid-template-columns: repeat(4, 1fr);
 
   .new {
     overflow-x: hidden;
@@ -21,13 +19,12 @@
     flex-flow: column;
 
     .title {
-      //display: flex;
       width: 134px;
       height: 28px;
       margin-bottom: 20px;
 
       .text {
-        font-family: Rubik;
+        font-family: Rubik, serif;
         font-style: normal;
         font-weight: 500;
         font-size: 24px;
@@ -38,16 +35,15 @@
 
 
     .new-items {
-      -ms-overflow-style: none;  /* IE and Edge */
+      -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none;
-      //position: relative;
-      //z-index: 0;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      //overflow-x: hidden;
+
       &::-webkit-scrollbar {
         display: none;
       }
+
       grid-auto-flow: column;
       grid-column-gap: 20px;
     }
@@ -55,6 +51,45 @@
     .new-item {
       height: 434px;
       width: 280px;
+      outline: none;
+
+      .image {
+        display: grid;
+        grid-template: 1fr / 1fr;
+
+        .preview-poster {
+          grid-column: 1 / 1;
+          grid-row: 1 / 1;
+          z-index: 3;
+
+        }
+
+        .movie-description {
+          border-radius: 8px;
+          font-family: Rubik;
+          font-size: 16px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.4;
+          letter-spacing: normal;
+          text-align: left;
+          color: #f2f2f2;
+          padding: 16px;
+          box-sizing: border-box;
+          backdrop-filter: brightness(0.3);
+          width: 280px;
+          height: 370px;
+          grid-column: 1 / 1;
+          grid-row: 1 / 1;
+          opacity: 0;
+          z-index: 5;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
     }
   }
 
@@ -80,9 +115,8 @@
 
     .genre-items {
       //disable scrollbar, without functionality
-      //overflow-x: hidden;
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
 
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -94,27 +128,40 @@
         display: none;
       }
 
-      /* Hide scrollbar for IE, Edge and Firefox */
-      //.example {
-      //
-      //}
-
-
-
-
       .genre-item {
+        position: relative;
         height: 208px;
         width: 280px;
-        background: rgba(162, 109, 255, 0.49);
+        border-radius: 6px;
+        box-shadow: inset 0 0 16px 0 rgba(0, 0, 0, 0.15);
+        background-image: linear-gradient(45deg, rgba(242, 201, random(256), 0.98), rgba(242, random(256), 74, 0.98));
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        .genre-icon {
+          width: 48px;
+          height: 48px;
+          font-size: 48px;
+          display: flex;
+          align-items: center;
+        }
+
+        .genre-name {
+          font-size: 20px;
+          position: absolute;
+          bottom: 24px;
+        }
       }
     }
   }
-
 }
 
 .preview-poster {
-  width: 280px;
+  width: 280px !important; //to override the slider style
   height: 370px;
+  border-radius: 8px;
 }
 
 .short-description {
@@ -128,9 +175,3 @@
   line-height: 24px;
   color: #333333;
 }
-
-//.scrollbar{
-//  z-index: 1;
-//  background: coral;
-//}
-

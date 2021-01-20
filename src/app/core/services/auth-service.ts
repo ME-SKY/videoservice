@@ -22,32 +22,13 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  // public get loggedIn(): boolean {
-  //   const user = this.currentUserValue;
-  //   return (user && user.username && user.username.length > 0) as boolean;
-  // }
-
-
-  login(username: string, password: string): void {
-
-    const [fName, lName] = username.split(' ', 2);
-    localStorage.setItem('currentUser', JSON.stringify({username, password, firstName: fName, lastName: lName}));
-    this.currentUserSubject.next({username, password, firstName: fName, lastName: lName});
+  login(user: User): void {
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    this.currentUserSubject.next(user);
     this.loggedIn.next(true);
-
-    // return user;
-    // return
-    // return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username, password })
-    //   .pipe(map(user => {
-        // store user details and jwt token in local storage to keep user logged in between page refreshes
-        // localStorage.setItem('currentUser', JSON.stringify(user));
-        // this.currentUserSubject.next(user);
-        // return user;
-      // }));
   }
 
   logout(): void {
-    // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
     this.loggedIn.next(false);

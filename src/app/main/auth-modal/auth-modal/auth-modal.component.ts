@@ -3,6 +3,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 // import {GoogleLoginProvider, SocialAuthService} from 'angularx-social-login';
 import {AuthService} from '../../../core/services/auth-service';
 import {FormControl} from '@angular/forms';
+import {User} from '../../../core/models/user';
 
 export interface DialogData {
   someDataOne: string;
@@ -28,32 +29,21 @@ export class AuthModalComponent implements OnInit {
   ) {
   }
 
-
-  // onNoClick(): void {
-  //   this.dialogRef.close();
-  // }
-
-
-
   ngOnInit(): void {
   }
 
   signIn(): void {
-    console.log('signIn');
-    console.log(this.userName);
-    console.log(this.password);
-    console.log(this.userName.value);
-    console.log(this.password.value);
-    this.authService.login(this.userName.value, this.password.value);
+    const [fName, lName] = this.userName.value.split(' ', 2);
+
+    const user = new User({
+      id: 1,
+      username: this.userName.value,
+      password: this.password.value,
+      firstName: fName,
+      lastName: lName
+    });
+
+    this.authService.login(user);
     this.dialogRef.close();
   }
-
-  // signInWithGoogle(): void {
-  //   this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
-  // }
-  //
-  // signOut(): void {
-  //   this.authService.signOut();
-  // }
-
 }

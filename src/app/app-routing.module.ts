@@ -6,12 +6,15 @@ import {DataResolverService} from './core/providers/data-resolver.service';
 
 const routes: Routes = [
   {
-    path: '', component: MainContentComponent
+    path: '', redirectTo: 'home', pathMatch: 'full'
+  },
+  {
+    path: 'home', component: MainContentComponent,
   },
   {
     path: 'movie/:id', component: MovieComponent,
     resolve: {
-      movie: DataResolverService
+      movieData: DataResolverService
     }
   },
 ];
