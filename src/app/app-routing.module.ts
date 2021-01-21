@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {MovieComponent} from './main/movie/movie/movie.component';
 import {MainContentComponent} from './main/main/main-content/main-content.component';
 import {MovieResolverService} from './core/providers/movie-resolver.service';
 import {MoviesResolverService} from '@src-app/core/providers/movies-resolver.service';
+// import { }
 
 const routes: Routes = [
   {
@@ -16,7 +16,9 @@ const routes: Routes = [
     }
   },
   {
-    path: 'movie/:id', component: MovieComponent,
+    path: 'movie/:id',
+    loadChildren: () => import('./main/movie/movie.module').then(m => m.MovieModule),
+    // loadChildren: () => import('./main/movie/movie.module').then(m => m.MovieModule),
     resolve: {
       movieData: MovieResolverService
     }
