@@ -3,7 +3,7 @@
     <div class="channel" *ngFor="let channel of channels">
 
       <div class="channel-logo">
-        {{channel.logo}}
+        <img [src]="channel.logo" alt="">
       </div>
 
       <div class="channel-info">

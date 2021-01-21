@@ -11,8 +11,8 @@ export class TVChannelsComponent implements OnInit {
   channels = [
     {
       id: 1,
-      name: 'SomeChannel1',
-      logo: 'some-logo-url',
+      name: 'Первый канал',
+      logo: 'assets/images/channels/1st.png',
       programs: [
         {
           id: 1,
@@ -33,8 +33,8 @@ export class TVChannelsComponent implements OnInit {
     },
     {
       id: 2,
-      name: 'SomeProgram',
-      logo: 'some-logo-url',
+      name: '2x2',
+      logo: 'assets/images/channels/2x2.png',
       programs: [
         {
           id: 1,
@@ -55,8 +55,8 @@ export class TVChannelsComponent implements OnInit {
     },
     {
       id: 3,
-      name: 'SomeProgram',
-      logo: 'some-logo-url',
+      name: 'РБК',
+      logo: 'assets/images/channels/rbk.png',
       programs: [
         {
           id: 1,
@@ -77,8 +77,8 @@ export class TVChannelsComponent implements OnInit {
     },
     {
       id: 4,
-      name: 'SomeProgram',
-      logo: 'some-logo-url',
+      name: 'AMEDIA PREMIUM',
+      logo: 'assets/images/channels/amedia.png',
       programs: [
         {
           id: 1,
@@ -99,8 +99,8 @@ export class TVChannelsComponent implements OnInit {
     },
     {
       id: 5,
-      name: 'SomeProgram',
-      logo: 'some-logo-url',
+      name: 'Netflix1',
+      logo: 'assets/images/channels/netflixlogo.png',
       programs: [
         {
           id: 1,
@@ -121,8 +121,8 @@ export class TVChannelsComponent implements OnInit {
     },
     {
       id: 6,
-      name: 'SomeProgram',
-      logo: 'some-logo-url',
+      name: 'Netflix2',
+      logo: 'assets/images/channels/netflixlogo.png',
       programs: [
         {
           id: 1,
@@ -143,8 +143,8 @@ export class TVChannelsComponent implements OnInit {
     },
     {
       id: 7,
-      name: 'SomeProgram',
-      logo: 'some-logo-url',
+      name: 'Netflix3',
+      logo: 'assets/images/channels/netflixlogo.png',
       programs: [
         {
           id: 1,
@@ -165,8 +165,8 @@ export class TVChannelsComponent implements OnInit {
     },
     {
       id: 8,
-      name: 'SomeProgram',
-      logo: 'some-logo-url',
+      name: 'Netflix4',
+      logo: 'assets/images/channels/netflixlogo.png',
       programs: [
         {
           id: 1,
@@ -187,8 +187,8 @@ export class TVChannelsComponent implements OnInit {
     },
     {
       id: 9,
-      name: 'SomeProgram',
-      logo: 'some-logo-url',
+      name: 'Netflix5',
+      logo: 'assets/images/channels/netflixlogo.png',
       programs: [
         {
           id: 1,
@@ -209,8 +209,8 @@ export class TVChannelsComponent implements OnInit {
     },
     {
       id: 10,
-      name: 'SomeProgram',
-      logo: 'some-logo-url',
+      name: 'Netflix6',
+      logo: 'assets/images/channels/netflixlogo.png',
       programs: [
         {
           id: 1,

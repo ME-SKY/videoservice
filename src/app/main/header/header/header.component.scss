@@ -67,6 +67,11 @@
     shape-outside: polygon(50% 0%, 0% 100%, 100% 100%);
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
+
+
+  .logo-image, .logo-text{
+    outline: none;
+  }
 }
 
 .logo-text {

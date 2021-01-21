@@ -1,4 +1,5 @@
 .tv-channels-container{
+  margin-top: 27px;
   display: flex;
   flex-flow: column nowrap;
 }
@@ -16,8 +17,19 @@
   background-color: #f2f2f2;
 
   .channel-logo{
-    //display: flex;
+
+    display: flex;
     flex: 1 1;
+    align-items: center;
+    justify-content: center;
+    width: 114px;
+    height: 114px;
+
+    img{
+      max-width: 114px;
+      max-height: 114px;
+    }
+
   }
 
   .channel-name{

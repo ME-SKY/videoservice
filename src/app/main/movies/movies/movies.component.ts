@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {SearchService} from '@src-app/core/services/search.service';
 import {OwlOptions} from 'ngx-owl-carousel-o';
+import {ActivatedRoute} from '@angular/router';
+import {MovieShort} from '@src-app/core/models/movie-short';
 
 
 @Component({
@@ -11,7 +13,7 @@ import {OwlOptions} from 'ngx-owl-carousel-o';
 })
 export class MoviesComponent implements OnInit {
 
-  posterUrl = 'assets/lokiposter.jpg';
+  posterUrl = 'assets/images/movie-posters/lokiposter.jpg';
 
   customOptions: OwlOptions = {
     items: 4,
@@ -23,16 +25,7 @@ export class MoviesComponent implements OnInit {
     margin: 20,
     navSpeed: 700,
     navText: ['<', '>'],
-    // responsive: {
-    //   0: {
-    //     items: 1
-    //   },
-    //   1180: {
-    //     items: 4
-    //   },
-    //
-    // },
-    nav: true
+    nav: false
   };
 
   isDragging = false;
@@ -149,11 +142,15 @@ export class MoviesComponent implements OnInit {
     }
   ];
 
-  filteredMovies$ = new BehaviorSubject(this.newMovieItems);
+  filteredMovies$: BehaviorSubject<any> = new BehaviorSubject(null);
+  movies: MovieShort [];
 
   constructor(
-    private searchService: SearchService
+    private searchService: SearchService,
+    private route: ActivatedRoute
   ) {
+    this.movies = this.route.snapshot.data.moviesData;
+    this.filteredMovies$.next(this.movies);
     this.searchService.stringChanged().subscribe(x => {
       this.filterMovies(x);
     });
@@ -161,11 +158,15 @@ export class MoviesComponent implements OnInit {
 
 
   filterMovies(str: string) {
-    this.filteredMovies$.next(this.newMovieItems.filter(movie => movie.name.toLowerCase().includes(str.toLowerCase())));
+    if(str && str.length >= 1){
+      this.filteredMovies$.next(this.movies.filter(movie => movie.name.toLowerCase().includes(str.toLowerCase())));
+    } else {
+      this.filteredMovies$.next(this.movies)
+    }
   }
 
   ngOnInit(): void {
-
+    this.filteredMovies$.next(this.route.snapshot.data.moviesData)
   }
 
 }

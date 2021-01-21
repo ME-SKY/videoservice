@@ -1,11 +1,11 @@
 <div class="header">
   <div class="logo">
-    <div class="logo-image">
+    <div class="logo-image" routerLink="home">
       <div class="circle"></div>
       <div class="triangle"></div>
     </div>
 
-    <div class="logo-text">
+    <div class="logo-text" routerLink="home">
       Видеоcервис
     </div>
   </div>
@@ -14,7 +14,7 @@
     <mat-form-field class="search-form-field">
       <input id="search" name="search" matInput type="text" placeholder="Поиск..." [formControl]="searchControl">
     </mat-form-field>
-    <label>Найти</label>
+    <label (click)="search()">Найти</label>
   </div>
 
 

@@ -5,15 +5,26 @@
 
   .logo {
     margin-right: 40px;
+    img{
+      max-height: 64px;
+      max-width: 32px;
+    }
   }
 
 }
 
 .contact-info {
+  display: flex;
+  flex-flow: column nowrap;
+  max-height: 64px;
   font-family: Rubik, serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;
   color: #333333;
+
+  p{
+    margin-bottom: auto;
+  }
 }

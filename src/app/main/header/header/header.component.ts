@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {AuthModalComponent} from '../../auth-modal/auth-modal/auth-modal.component';
 import {AuthService} from '../../../core/services/auth-service';
@@ -7,8 +7,14 @@ import {FormControl} from '@angular/forms';
 import {DataService} from '../../../core/services/data.service';
 import {NameFirstLetterPipe} from '../../../core/pipes/name-first-letter.pipe';
 import {SearchService} from '@src-app/core/services/search.service';
-import {debounceTime, filter, takeUntil} from 'rxjs/operators';
+import {debounceTime, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {Router} from '@angular/router';
+
+interface EventCount {
+  digit: number,
+  event: any
+}
 
 @Component({
   selector: 'app-header',
@@ -35,7 +41,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private dataService: DataService,
     private nFirstLetterPipe: NameFirstLetterPipe,
-    private searchService: SearchService) {
+    private searchService: SearchService,
+    private router: Router) {
 
     this.authService.loggedIn.subscribe(x => {
       this.userAuthenticated = x;
@@ -51,9 +58,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.searchControl.valueChanges.pipe(
       takeUntil(this.subs$),
       debounceTime(500),
-      filter(x => x.length > 2)
     ).subscribe(x => {
         this.searchService.changeString(x);
+        if(this.router.url !== '/home') {
+          this.router.navigate(['home'])
+        }
       }
     );
   }
@@ -64,6 +73,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       height: '394px',
       backdropClass: 'auth-background'
     });
+  }
+
+  search(){
+    this.searchService.changeString(this.searchControl.value)
   }
 
   changeName(): void {

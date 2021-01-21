@@ -6,7 +6,7 @@
     *ngIf="axis === 'horizontal'"
       #horizontal
       class="thumb"
-      [@showHide]="isScrolled || mouseOverTrumb ? 'show' : 'hide'"
+      [@showHide]="isScrolled || mouseOverThumb ? 'show' : 'hide'"
       [class.thumb_active]="horizontalThumbActive"
       [style.width.%]="info.horizontalSize"
       [style.left.%]="info.horizontalPosition"
@@ -21,7 +21,7 @@
       *ngIf="axis === 'vertical'"
       #vertical
       class="thumb-vertical"
-      [@showHide]="isScrolled || mouseOverTrumb ? 'show' : 'hide'"
+      [@showHide]="isScrolled || mouseOverThumb ? 'show' : 'hide'"
       [class.thumb_active]="verticalThumbActive"
       [style.height.%]="info.verticalSize"
       [style.top.%]="info.verticalPosition"

@@ -37,7 +37,7 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
   @ViewChild('vertical') vertical: ElementRef;
 
   isScrolled = false;
-  mouseOverTrumb = false;
+  mouseOverThumb = false;
   horizontalThumbActive = false;
   verticalThumbActive = false;
   scrollBarDragged = false;
@@ -63,24 +63,11 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
   }
 
   mouseOverToggle(isOver: boolean) {
-    this.mouseOverTrumb = isOver;
+    this.mouseOverThumb = isOver;
   }
 
-  // (wheel)="wheeled()" on #bar
+  // (wheel)="wheeled()" on #bar TODO make thumb visible on wheel
   wheeled() {
-    console.log(this.info.horizontalPosition);
-
-    // let delta = this.info.horizontalPosition -
-    if (this.info.horizontalPosition == 0 || this.info.horizontalPosition == 100 || this.info.horizontalPosition == undefined) {
-      this.horizontalThumbActive = true;
-      this.isScrolled = true;
-
-      timer(300).pipe(
-      ).subscribe(x => {
-        this.isScrolled = false;
-        this.horizontalThumbActive = false;
-      });
-    }
   }
 
 
@@ -169,7 +156,6 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
     } = this.bar.nativeElement;
 
     this.info.verticalScrolled = scrollTop / (scrollHeight - clientHeight);
-    console.log(this.info.verticalScrolled);
     return this.info.verticalScrolled;
   }
 
