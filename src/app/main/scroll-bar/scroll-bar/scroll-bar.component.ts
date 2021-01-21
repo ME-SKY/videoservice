@@ -1,4 +1,14 @@
-import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 import {timer} from 'rxjs';
 
 import {animate, state, style, transition, trigger,} from '@angular/animations';
@@ -21,6 +31,7 @@ import {animate, state, style, transition, trigger,} from '@angular/animations';
       transition('hide => show', animate('200ms ease-in-out')),
     ])
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ScrollBarComponent implements OnInit, AfterViewInit {
 
