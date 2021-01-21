@@ -5,10 +5,13 @@ header{
 
 .main-content{
   width: 1180px;
+  height: 786px;
   margin: 0 auto 60px;
 }
 
 footer{
+  position: relative;
+  bottom: 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;

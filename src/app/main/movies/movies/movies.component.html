@@ -1,4 +1,5 @@
-<div class="movies-container">
+
+<div class="movies-container" >
 
   <div class="new">
     <div class="title">
@@ -6,14 +7,14 @@
     </div>
 
 
-    <div class="new-items">
+    <div [ngClass]="{'new-items': true, 'showed-smoothly': showedSmoothly}"  >
 
-      <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging" [style.width.px]="1180">
+      <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging" [style.width.px]="1180" (initialized)="showSmoothly()">
 
         <ng-container *ngFor="let item of (filteredMovies$ | async)">
 
           <ng-template carouselSlide>
-            <div class="new-item slider-item" [owlRouterLink]="'/movie/' + item.id" [stopLink]="isDragging">
+            <div class="new-item slider-item" [owlRouterLink]="'/movie/' + item.id" [stopLink]="isDragging" >
               <div class="image">
                 <img class="preview-poster" [src]="item.previewPoster" alt="">
                 <div class="movie-description">{{item.description}}</div>
@@ -25,7 +26,9 @@
 
       </owl-carousel-o>
     </div>
+
   </div>
+
 
   <div class="genres">
     <div class="title">Жанры</div>

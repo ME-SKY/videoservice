@@ -14,10 +14,20 @@
   width: 1180px;
 
   .new {
+    position: relative;
     overflow-x: hidden;
     display: flex;
     flex-flow: column;
     height: 482px;
+
+
+    .display-carpet{
+      position: absolute;
+      width: 1180px;
+      height: 482px;
+      background: black;
+      z-index: 100;
+    }
 
     .title {
       width: 134px;
@@ -36,6 +46,8 @@
 
 
     .new-items {
+      opacity: 0;
+      height: 434px;
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none;
       display: grid;
@@ -47,6 +59,11 @@
 
       grid-auto-flow: column;
       grid-column-gap: 20px;
+    }
+
+    .showed-smoothly{
+      opacity: 1;
+      transition: opacity 600ms ease;
     }
 
     .new-item {

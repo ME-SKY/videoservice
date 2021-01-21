@@ -15,8 +15,6 @@ import {Genre} from '@src-app/core/models/genre';
 })
 export class MoviesComponent implements OnInit {
 
-  posterUrl = 'assets/images/movie-posters/lokiposter.jpg';
-
   customOptions: OwlOptions = {
     items: 4,
     loop: false,
@@ -85,12 +83,14 @@ export class MoviesComponent implements OnInit {
   ];
 
 
-  filteredMovies$: BehaviorSubject<any> = new BehaviorSubject(null);
+  filteredMovies$: BehaviorSubject<MovieShort[]> = new BehaviorSubject(<MovieShort[]> []);
   movies: MovieShort [];
+  showedSmoothly = false;
+
 
   constructor(
     private searchService: SearchService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
     this.movies = this.route.snapshot.data.moviesData;
     this.filteredMovies$.next(this.movies);
@@ -101,15 +101,19 @@ export class MoviesComponent implements OnInit {
 
 
   filterMovies(str: string) {
-    if(str && str.length >= 1){
+    if (str && str.length >= 1) {
       this.filteredMovies$.next(this.movies.filter(movie => movie.name.toLowerCase().includes(str.toLowerCase())));
     } else {
-      this.filteredMovies$.next(this.movies)
+      this.filteredMovies$.next(this.movies);
     }
   }
 
   ngOnInit(): void {
-    this.filteredMovies$.next(this.route.snapshot.data.moviesData)
+    this.filteredMovies$.next(this.route.snapshot.data.moviesData);
   }
 
+
+  showSmoothly() {
+    this.showedSmoothly = true;
+  }
 }
