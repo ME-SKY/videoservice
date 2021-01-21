@@ -1,58 +1,58 @@
 [
   {
     "id":1,
-    "name":"SomeName1",
+    "name":"Avengers",
     "description":"Some description of some film/movie, some description of some movie, some some some some some some",
     "shortDescription":"Some description",
-    "previewPoster":"../../../../assets/lokiposter.jpg"
+    "previewPoster":"assets/images/movie-posters/avengers.jpg"
   },
   {
     "id":2,
-    "name":"SomeName2",
+    "name":"Loki",
     "description":"Some description of some film/movie, some description of some movie, some some some some some some",
     "shortDescription":"Some description",
-    "previewPoster":"../../../../assets/lokiposter.jpg"
+    "previewPoster":"assets/images/movie-posters/lokiposter.jpg"
   },
   {
     "id":3,
-    "name":"SomeName3",
+    "name":"Sonic",
     "description":"Some description of some film/movie, some description of some movie, some some some some some some",
     "shortDescription":"Some description",
-    "previewPoster":"../../../../assets/lokiposter.jpg"
+    "previewPoster":"assets/images/movie-posters/sonic.jpg"
   },
   {
     "id":4,
-    "name":"SomeName4",
+    "name":"Witcher",
     "description":"Some description of some film/movie, some description of some movie, some some some some some some",
     "shortDescription":"Some description",
-    "previewPoster":"../../../../assets/lokiposter.jpg"
+    "previewPoster":"assets/images/movie-posters/witcher.jpg"
   },
   {
     "id":5,
     "name":"SomeName5",
     "description":"Some description of some film/movie, some description of some movie, some some some some some some",
     "shortDescription":"Some description",
-    "previewPoster":"../../../../assets/lokiposter.jpg"
+    "previewPoster":"assets/images/movie-posters/lokiposter.jpg"
   },
   {
     "id":6,
     "name":"SomeName6",
     "description":"Some description of some film/movie, some description of some movie, some some some some some some",
     "shortDescription":"Some description",
-    "previewPoster":"../../../../assets/lokiposter.jpg"
+    "previewPoster":"assets/images/movie-posters/lokiposter.jpg"
   },
   {
     "id":7,
     "name":"SomeName7",
     "description":"Some description of some film/movie, some description of some movie, some some some some some some",
     "shortDescription":"Some description",
-    "previewPoster":"../../../../assets/lokiposter.jpg"
+    "previewPoster":"assets/images/movie-posters/lokiposter.jpg"
   },
   {
     "id":8,
     "name":"SomeName8",
     "description":"Some description of some film/movie, some description of some movie, some some some some some some",
     "shortDescription":"Some description",
-    "previewPoster":"../../../../assets/lokiposter.jpg"
+    "previewPoster":"assets/images/movie-posters/lokiposter.jpg"
   }
 ]
