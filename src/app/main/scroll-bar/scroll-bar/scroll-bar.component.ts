@@ -79,6 +79,7 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
 
   // (wheel)="wheeled()" on #bar TODO make thumb visible on wheel
   wheeled() {
+    console.log('whelled');
   }
 
 
@@ -191,6 +192,7 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
 
 
   setScrollInfo(event: any) {
+    console.log('setScrolInfo');
 
     if (this.axis === 'vertical') {
       this.verticalThumbActive = true;

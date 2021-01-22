@@ -11,7 +11,7 @@ import {Genre} from '@src-app/core/models/genre';
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class MoviesComponent implements OnInit {
 

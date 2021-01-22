@@ -1,7 +1,7 @@
 .movies-container {
   overflow: hidden;
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none;
+  ;
 
   &::-webkit-scrollbar {
     display: none;
@@ -48,8 +48,7 @@
     .new-items {
       opacity: 0;
       height: 434px;
-      -ms-overflow-style: none; /* IE and Edge */
-      scrollbar-width: none;
+      -ms-overflow-style: none; /* IE and Edge */;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
 
@@ -135,7 +134,7 @@
     .genre-items {
       //disable scrollbar, without functionality
       -ms-overflow-style: none; /* IE and Edge */
-      scrollbar-width: none; /* Firefox */
+
 
       display: grid;
       grid-template-columns: repeat(4, 1fr);
