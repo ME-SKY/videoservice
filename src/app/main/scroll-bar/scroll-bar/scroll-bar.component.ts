@@ -279,25 +279,4 @@ export class ScrollBarComponent implements OnInit, AfterViewInit {
 
     nativeElement.scrollTop = maxscrollTop * scrolled;
   }
-
-  workAround() {
-
-    const barIs = document.querySelector('#bar');
-    // const viaBtn = document.querySelector('.viame');
-
-    // viaBtn.addEventListener('click', function(event) {
-    // @ts-ignore
-    barIs.dispatchEvent(
-        new MouseEvent('mousemove', {
-          bubbles: true,
-          cancelable: true,
-          view: window,
-        }));
-    // });
-
-    // clickBtn.addEventListener('click', function(event) {
-    //   console.warn(`I was accessed via the other button! A ${event.type} occurred!`);
-    // });
-    // document.dispatchEvent()
-  }
 }

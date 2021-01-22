@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {SearchService} from '@src-app/core/services/search.service';
 import {OwlOptions} from 'ngx-owl-carousel-o';
@@ -91,6 +91,7 @@ export class MoviesComponent implements OnInit {
   constructor(
     private searchService: SearchService,
     private route: ActivatedRoute,
+    private cdref: ChangeDetectorRef
   ) {
     this.movies = this.route.snapshot.data.moviesData;
     this.filteredMovies$.next(this.movies);
@@ -115,5 +116,6 @@ export class MoviesComponent implements OnInit {
 
   showSmoothly() {
     this.showedSmoothly = true;
+    this.cdref.detectChanges();
   }
 }
