@@ -36,7 +36,6 @@ import {animate, state, style, transition, trigger,} from '@angular/animations';
 export class ScrollBarComponent implements OnInit, AfterViewInit {
 
 
-  // private defaultAxis = 'horizontal';
   @Input() scrollBarWidth!: number;
   @Input() scrollBarHeight!: number;
   @Input() axis: 'vertical' | 'horizontal' = 'horizontal';
