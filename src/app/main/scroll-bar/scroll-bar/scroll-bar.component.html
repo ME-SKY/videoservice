@@ -1,5 +1,5 @@
 <div class="scroll-bar" [style.width.px]="scrollBarWidth" [style.height.px]="scrollBarHeight">
-  <div #bar class="content-inside-scrollbar" (wheel)="wheeled()"  (scroll)="setScrollInfo($event)" (mouseup)="scrollBarDragged = false" >
+  <div #bar #bar class="content-inside-scrollbar" (wheel)="workAround()"  (scroll)="setScrollInfo($event)" (mouseup)="scrollBarDragged = false" >
     <ng-content></ng-content>
   </div>
   <div
