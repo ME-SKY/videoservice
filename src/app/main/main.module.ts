@@ -6,10 +6,8 @@ import {HeaderModule} from './header/header.module';
 import {MoviesModule} from './movies/movies.module';
 import {MatTabsModule} from '@angular/material/tabs';
 import {FooterModule} from './footer/footer.module';
-import {ScrollBarModule} from './scroll-bar/scroll-bar.module';
-import {ScrollBarComponent} from './scroll-bar/scroll-bar/scroll-bar.component';
 import {TvCanalsModule} from './tv-canals/tv-canals.module';
-import { MainContentComponent } from './main/main-content/main-content.component';
+import {MainContentComponent} from './main/main-content/main-content.component';
 import {RouterModule} from '@angular/router';
 import {MovieModule} from './movie/movie.module';
 
