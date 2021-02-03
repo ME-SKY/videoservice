@@ -11,7 +11,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 1180px;
+  max-width: 1180px;
+  width: 100%;
 
   .new {
     position: relative;
@@ -42,6 +43,10 @@
         line-height: 28px;
         color: #333333;
       }
+
+      //@media (max-width: 750px) {
+      //  align-self: center;
+      //}
     }
 
 
@@ -58,6 +63,10 @@
 
       grid-auto-flow: column;
       grid-column-gap: 20px;
+
+      @media (max-width: 750px) {
+        display: flex;
+      };
     }
 
     .showed-smoothly{
@@ -73,15 +82,32 @@
       .image {
         display: grid;
         grid-template: 1fr / 1fr;
+        z-index: 2;
+        position: relative;
+
+        &:hover{
+          & > .movie-description{
+            opacity: 1;
+            cursor: pointer;
+            //filter: brightness(1);
+          }
+
+          & > .preview-poster{
+            opacity: 1;
+            cursor: pointer;
+            filter: brightness(0.4);
+          }
+        }
 
         .preview-poster {
+          position: relative;
           grid-column: 1 / 1;
           grid-row: 1 / 1;
           z-index: 3;
-
         }
 
         .movie-description {
+          position: relative;
           border-radius: 8px;
           font-family: Rubik, serif;
           font-size: 16px;
@@ -94,27 +120,28 @@
           color: #f2f2f2;
           padding: 16px;
           box-sizing: border-box;
-          backdrop-filter: brightness(0.3);
           width: 280px;
           height: 370px;
           grid-column: 1 / 1;
           grid-row: 1 / 1;
           opacity: 0;
           z-index: 5;
-
-          &:hover {
-            opacity: 1;
-            cursor: pointer;
-          }
         }
       }
     }
+
+    @media (max-width: 750px) {
+      margin: auto;
+    }
+
+
   }
 
   .genres {
     display: flex;
     flex-flow: column nowrap;
-    width: 1180px;
+    max-width: 1180px;
+    width: 100%;
     //disable scrollbar, without functionality
     overflow-x: hidden;
 
@@ -178,10 +205,16 @@
         }
       }
     }
+    @media (max-width: 750px) {
+      margin: 0 20px;
+      width: auto;
+    }
   }
+
 }
 
 .preview-poster {
+  max-width: 280px !important;
   width: 280px !important; //to override the slider style
   height: 370px;
   border-radius: 8px;
@@ -198,4 +231,10 @@
   font-size: 20px;
   line-height: 24px;
   color: #333333;
+}
+
+//scrollbar
+
+app-scroll-bar{
+  display: flex;
 }

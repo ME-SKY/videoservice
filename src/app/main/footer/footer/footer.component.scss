@@ -1,7 +1,8 @@
 .footer {
   display: flex;
   flex-flow: row nowrap;
-  width: 1180px;
+  max-width: 1180px;
+  width: 100%;
 
   .logo {
     margin-right: 40px;

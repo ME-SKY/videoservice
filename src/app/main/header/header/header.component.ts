@@ -3,7 +3,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {AuthModalComponent} from '../../auth-modal/auth-modal/auth-modal.component';
 import {AuthService} from '../../../core/services/auth-service';
 import {IUser, User} from '../../../core/models/user';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl} from '@angular/forms';
 import {DataService} from '../../../core/services/data.service';
 import {NameFirstLetterPipe} from '../../../core/pipes/name-first-letter.pipe';
 import {SearchService} from '@src-app/core/services/search.service';
@@ -30,6 +30,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   user: IUser;
 
+  // changingUserNameControl = c
+
   changingUserNameControl = new FormControl({value: '', readOnly: true});
   searchControl = new FormControl('');
 
@@ -42,9 +44,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private dataService: DataService,
     private nFirstLetterPipe: NameFirstLetterPipe,
     private searchService: SearchService,
-    private router: Router) {
+    private router: Router,
+    private fb: FormBuilder) {
 
-    this.authService.loggedIn.subscribe(x => {
+    this.authService.loggedIn.pipe(
+      takeUntil(this.subs$)
+    ).subscribe(x => {
       this.userAuthenticated = x;
       if (x) {
         this.user = this.authService.currentUserValue as User;

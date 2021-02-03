@@ -9,11 +9,11 @@
 
     <div [ngClass]="{'new-items': true, 'showed-smoothly': showedSmoothly}"  >
 
-      <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging" [style.width.px]="1180" (initialized)="showSmoothly()">
+      <owl-carousel-o [options]="customOptions" (dragging)="isDragging = $event.dragging" [style.width.px]="this.owlSliderWidth" (initialized)="showSmoothly()">
 
-        <ng-container *ngFor="let item of (filteredMovies$ | async)">
+        <ng-container  *ngFor="let item of (filteredMovies$ | async)">
 
-          <ng-template carouselSlide>
+          <ng-template  carouselSlide>
             <div class="new-item slider-item" [owlRouterLink]="'/movie/' + item.id" [stopLink]="isDragging" >
               <div class="image">
                 <img class="preview-poster" [src]="item.previewPoster" alt="">

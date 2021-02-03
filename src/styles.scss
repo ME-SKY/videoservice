@@ -46,8 +46,14 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+//override some material styles
 
 //tabs used in main.component.ts
+
+.mat-tab-body-content {
+  overflow: hidden !important;
+}
+
 .mat-tab-header {
   border-bottom: 0;
 }
@@ -67,6 +73,42 @@ body {
   opacity: 1 !important;
 }
 
+.mat-tab-header-pagination.mat-tab-header-pagination-disabled {
+  display: none !important;
+}
+
+//change focused input color
+
+.mat-form-field.mat-focused .mat-form-field-label{
+  color: red;
+}
+
+.mat-input-element {
+  caret-color: black!important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-underline {
+  color:red;
+}
+
+
+
+//.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline.mat-focused {
+//  color: red!important;
+//   //opacity: 1!important;
+//}
+//
+//.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick.mat-focused {
+//  color: red!important;
+//}
+
+//.mat-form-field-appearance-outline .mat-form-field-outline {
+//  color: white;
+//}
+/* Font color */
+//input.mat-input-element {
+//  color: white;
+//}
 
 //Auth Background
 
@@ -82,6 +124,12 @@ body {
   width: 1180px;
   text-align: center;
   -webkit-tap-highlight-color: transparent;
+}
+
+
+.own-item{
+  max-width: 320px !important;
+  width: auto !important;
 }
 
 

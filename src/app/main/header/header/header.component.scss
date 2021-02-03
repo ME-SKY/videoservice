@@ -5,6 +5,10 @@
   font-size: 16px;
   line-height: 19px;
   color: red;
+
+  @media (max-width: 750px) {
+    display: none;
+  }
 }
 
 .user-name {
@@ -23,6 +27,12 @@
   input {
     text-align: center;
   }
+
+  @media (max-width: 750px) {
+    width: auto;
+    font-size: 2em;
+  }
+
 }
 
 .header {
@@ -30,6 +40,21 @@
   align-items: center;
   justify-content: space-between;
   flex-grow: 2;
+
+
+  @media (max-width: 750px) {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+}
+
+.logo,.search,.profile{
+  @media (max-width: 750px) {
+    min-height: 57px;
+    display: flex;
+    //justify-content: center;
+    align-items: center;
+  }
 }
 
 
@@ -72,14 +97,23 @@
   .logo-image, .logo-text{
     outline: none;
   }
+
+  @media (max-width: 750px) {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .logo-text {
-  margin-left: 5px;
+  margin-left: 10px;
   display: flex;
   align-items: center;
   color: black;
   font-weight: bold;
+
+  @media (max-width: 750px) {
+    display: none;
+  }
 }
 
 .search {
@@ -90,18 +124,34 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 750px) {
+    min-width: 100px;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+  }
 }
 
 .search-form-field {
   width: 320px;
   margin-right: 32px;
+
+  @media (max-width: 750px) {
+    width: auto;
+    margin-right: 0;
+  }
 }
 
-label {
+label#search-label {
   margin-left: 10px;
   color: red;
   font-size: 1em;
   font-weight: bold;
+
+  @media (max-width: 750px) {
+    display: none;
+  }
 }
 
 .profile {
@@ -124,5 +174,9 @@ label {
     background: transparent;
     color: red;
     border: 0;
+  }
+
+  @media (max-width: 750px) {
+    justify-content: left;
   }
 }

@@ -5,16 +5,16 @@
       <div class="triangle"></div>
     </div>
 
-    <div class="logo-text" routerLink="home">
+    <div class="logo-text" routerLink="home" >
       Видеоcервис
     </div>
   </div>
 
   <div class="search">
-    <mat-form-field class="search-form-field">
+    <mat-form-field class="search-form-field" [color]="'warn'">
       <input id="search" name="search" matInput type="text" placeholder="Поиск..." [formControl]="searchControl">
     </mat-form-field>
-    <label (click)="search()">Найти</label>
+    <label id="search-label" (click)="search()">Найти</label>
   </div>
 
 

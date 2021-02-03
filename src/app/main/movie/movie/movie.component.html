@@ -39,10 +39,11 @@
     <div class="comment-input">
 
       <div class="input">
-        <textarea name="" id="" placeholder="Введите комментарий..." [formControl]="commentControl"></textarea>
+        <textarea placeholder="Введите комментарий..." [formControl]="commentControl"></textarea>
+        <span class="comment-length-error" *ngIf="commentControl.hasError('minlength')">Пожалуйста хотя бы 3 символа</span>
       </div>
 
-      <button [disabled]="!currentUser" class="publish-button" mat-button (click)="saveComment()">
+      <button [disabled]="!currentUser || !commentControl.valid" class="publish-button" mat-button (click)="saveComment()">
         Опубликовать
       </button>
     </div>

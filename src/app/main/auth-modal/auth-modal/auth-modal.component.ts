@@ -1,15 +1,13 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-// import {GoogleLoginProvider, SocialAuthService} from 'angularx-social-login';
 import {AuthService} from '../../../core/services/auth-service';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {User} from '../../../core/models/user';
 
 export interface DialogData {
   someDataOne: string;
   someDataTwo: string;
 }
-
 
 @Component({
   selector: 'app-auth-modal',
@@ -19,13 +17,16 @@ export interface DialogData {
 export class AuthModalComponent implements OnInit {
 
 
-  userName = new FormControl('');
-  password = new FormControl('');
+  authForm = this.fb.group({
+    userName: ['', [Validators.required, Validators.minLength(2)]],
+    password: ['', [Validators.required, Validators.minLength(2)]]
+  });
 
   constructor(
     public dialogRef: MatDialogRef<AuthModalComponent>,
     private authService: AuthService,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    private fb: FormBuilder
   ) {
   }
 
@@ -33,12 +34,12 @@ export class AuthModalComponent implements OnInit {
   }
 
   signIn(): void {
-    const [fName, lName] = this.userName.value.split(' ', 2);
+    const [fName, lName] = this.authForm.controls.userName.value.split(' ', 2);
 
     const user = new User({
       id: 1,
-      username: this.userName.value,
-      password: this.password.value,
+      username: this.authForm.controls.userName.value,
+      password: this.authForm.controls.password.value,
       firstName: fName,
       lastName: lName
     });

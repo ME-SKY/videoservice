@@ -3,12 +3,15 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;
   overflow: hidden;
-  //background: red;
   display: grid;
   grid-template: 1fr / 1fr;
-  width: max-content;
+  width: auto;
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media (max-width: 750px) {
+    max-height: 450px;
   }
 }
 

@@ -1,13 +1,26 @@
-<div class="auth-dialog">
+<div class="auth-dialog" [formGroup]="authForm">
 
   <h1 mat-dialog-title>Вход</h1>
 
   <div class="auth-inputs" mat-dialog-content>
-    <mat-form-field>
-      <input matInput placeholder="Логин" [formControl]="userName">
+    <mat-form-field [color]="'warn'">
+      <input matInput placeholder="Логин" formControlName="userName">
+      <mat-error *ngIf="authForm.controls.userName.hasError('required')">
+        Обязательное поле.
+      </mat-error>
+      <mat-error *ngIf="authForm.controls.userName.hasError('minlength')">
+        от {{authForm.controls.userName.errors.minlength.requiredLength}} символов пожалуйста
+      </mat-error>
     </mat-form-field>
-    <mat-form-field>
-      <input type="password" matInput placeholder="Пароль" [formControl]="password">
+
+    <mat-form-field [color]="'warn'">
+      <input type="password" matInput placeholder="Пароль" formControlName="password">
+      <mat-error *ngIf="authForm.controls.password.hasError('required')">
+        Обязательное поле.
+      </mat-error>
+      <mat-error *ngIf="authForm.controls.password.hasError('minlength')">
+        от {{authForm.controls.password.errors.minlength.requiredLength}} символов пожалуйста
+      </mat-error>
     </mat-form-field>
     <mat-checkbox>Запомнить</mat-checkbox>
   </div>
