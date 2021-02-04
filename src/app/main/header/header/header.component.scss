@@ -183,9 +183,9 @@ label#search-label {
     max-width: 113px;
     width: 100%;
 
-    //@media (max-width: 950px) {
-    //  display: none;
-    //}
+    @media (max-width: 950px) {
+      margin-right: 5px;
+    }
   }
 
   button.sign-out {
