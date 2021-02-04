@@ -1,5 +1,3 @@
-$comment-max-size: 335px;
-
 .movie-container {
   margin-top: 52px;
 
@@ -40,7 +38,6 @@ $comment-max-size: 335px;
   max-height: 370px;
   max-width: 580px;
   flex-basis: 50%;
-  //width: min-content;
 
   .name, .country, .genre {
     max-width: 548px;
@@ -69,6 +66,10 @@ $comment-max-size: 335px;
     .info-content {
       font-weight: 700;
     }
+  }
+
+  @media (max-width: 600px) {
+    flex-basis: 100%;
   }
 }
 

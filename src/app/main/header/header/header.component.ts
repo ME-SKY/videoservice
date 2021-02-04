@@ -31,19 +31,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   user: IUser;
 
-  // changingUserNameControl = c
-
   changingUserNameControl = this.fb.control({value: '', readOnly: true});
   searchControl = this.fb.control('');
 
   subs$ = new Subject();
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
-
-  // someMethod() {
-  //   this.trigger.openMenu();
-  // }
-
 
   constructor(
     public dialog: MatDialog,
@@ -105,10 +98,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     const [firstName, lastName] = this.user.username.split(' ', 2);
 
-    console.log('firstname');
-    console.log('lastName');
-    console.log(firstName);
-    console.log(lastName);
     this.user.firstName = firstName;
     this.user.lastName = lastName;
 
@@ -116,7 +105,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.changingUserNameControl.patchValue(`${firstName} ${this.nFirstLetterPipe.transform(lastName)}`);
 
     this.changingUserName = false;
-    console.log(this.changingUserName);
     this.trigger.closeMenu()
   }
 

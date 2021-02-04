@@ -110,9 +110,7 @@ export class MoviesComponent implements OnInit, OnDestroy {
 
   @HostListener('window:resize')
   setSizeToOwlSlider() {
-    console.log('resized');
     if ((window.innerWidth as number) <= 750) {
-      console.log();
       this.owlSliderWidth = (window.innerWidth - 40);
       this.owlSliderItems = 1;
     } else {

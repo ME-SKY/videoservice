@@ -47,10 +47,6 @@
         color: #333333;
         white-space: nowrap;
       }
-
-      //@media (max-width: 750px) {
-      //  align-self: center;
-      //}
     }
 
 
@@ -93,7 +89,6 @@
           & > .movie-description{
             opacity: 1;
             cursor: pointer;
-            //filter: brightness(1);
           }
 
           & > .preview-poster{
