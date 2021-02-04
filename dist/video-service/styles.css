@@ -2405,6 +2405,9 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+.mat-tab-body-content {
+  overflow: hidden !important;
+}
 .mat-tab-header {
   border-bottom: 0;
 }
@@ -2418,6 +2421,19 @@ body {
   color: black;
   opacity: 1 !important;
 }
+.mat-tab-header-pagination.mat-tab-header-pagination-disabled {
+  display: none !important;
+}
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: red;
+}
+.mat-input-element {
+  caret-color: black !important;
+}
+.mat-form-field.mat-focused .mat-form-field-underline {
+  color: red;
+}
+/* Font color */
 .auth-background {
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
@@ -2426,6 +2442,10 @@ body {
   width: 1180px;
   text-align: center;
   -webkit-tap-highlight-color: transparent;
+}
+.own-item {
+  max-width: 320px !important;
+  width: auto !important;
 }
 
 /*# sourceMappingURL=styles.css.map*/
