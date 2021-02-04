@@ -28,7 +28,8 @@
     text-align: center;
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 950px) {
+    display: none;
     width: auto;
     font-size: 2em;
   }
@@ -38,7 +39,7 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-grow: 2;
 
 
@@ -59,13 +60,29 @@
 
 
 .logo {
+  max-width: 389px;
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
 
+  img{
+    max-width: 182px;
+    height: 36px;
+    width: 100%;
+
+    @media (max-width: 950px) {
+      display: none;
+    }
+  }
+
   .logo-image {
-    display: grid;
+    display: none;
     grid-template: 1fr / 1fr;
+
+
+    @media (max-width: 950px) {
+      display: grid;
+    }
   }
 
   .circle {
@@ -106,19 +123,19 @@
 
 .logo-text {
   margin-left: 10px;
-  display: flex;
+  display: none;
   align-items: center;
   color: black;
   font-weight: bold;
 
-  @media (max-width: 750px) {
-    display: none;
+  @media (max-width: 950px) and (min-width: 450px){
+    display: flex;
   }
 }
 
 .search {
   width: 100%;
-  min-width: 402px;
+  max-width: 402px;
   min-height: 25px;
   display: flex;
   flex-flow: row nowrap;
@@ -135,7 +152,6 @@
 
 .search-form-field {
   width: 320px;
-  margin-right: 32px;
 
   @media (max-width: 750px) {
     width: auto;
@@ -144,7 +160,7 @@
 }
 
 label#search-label {
-  margin-left: 10px;
+  margin-left: 32px;
   color: red;
   font-size: 1em;
   font-weight: bold;
@@ -155,14 +171,21 @@ label#search-label {
 }
 
 .profile {
+  max-width: 389px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 100%;
 
-  button {
+  button.sign-in {
     background: red;
     color: white;
+    max-width: 113px;
+    width: 100%;
+
+    //@media (max-width: 950px) {
+    //  display: none;
+    //}
   }
 
   button.sign-out {
@@ -174,9 +197,41 @@ label#search-label {
     background: transparent;
     color: red;
     border: 0;
+
+    @media (max-width: 950px) {
+      display: none;
+    }
+  }
+
+  button.user-profile-menu-adaptive {
+    outline: none;
+    border: none;
+    background: white;
+    color: black;
+    font-family: Rubik;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
   }
 
   @media (max-width: 750px) {
     justify-content: left;
   }
 }
+
+.user-name-adaptive {
+  display: none;
+
+  @media (max-width: 950px) {
+    display: flex;
+  }
+}
+
+.change-name-div{
+  display: flex;
+  width: max-content;
+  align-items: baseline;
+}
+
+

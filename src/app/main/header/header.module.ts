@@ -8,6 +8,8 @@ import {AuthModalModule} from '../auth-modal/auth-modal.module';
 import {NameFirstLetterPipe} from '../../core/pipes/name-first-letter.pipe';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatRippleModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import {RouterModule} from '@angular/router';
     MatButtonModule,
     AuthModalModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MatMenuModule,
+    MatRippleModule
   ]
 })
 export class HeaderModule {

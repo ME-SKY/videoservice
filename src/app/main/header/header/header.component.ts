@@ -1,15 +1,16 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {AuthModalComponent} from '../../auth-modal/auth-modal/auth-modal.component';
 import {AuthService} from '../../../core/services/auth-service';
 import {IUser, User} from '../../../core/models/user';
-import {FormBuilder, FormControl} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {DataService} from '../../../core/services/data.service';
 import {NameFirstLetterPipe} from '../../../core/pipes/name-first-letter.pipe';
 import {SearchService} from '@src-app/core/services/search.service';
 import {debounceTime, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
 import {Router} from '@angular/router';
+import {MatMenuTrigger} from '@angular/material/menu';
 
 interface EventCount {
   digit: number,
@@ -25,17 +26,23 @@ interface EventCount {
 export class HeaderComponent implements OnInit, OnDestroy {
 
 
-  userAuthenticated = false;
-  changingUserName = false;
+  userAuthenticated: boolean = false;
+  changingUserName: boolean = false;
 
   user: IUser;
 
   // changingUserNameControl = c
 
-  changingUserNameControl = new FormControl({value: '', readOnly: true});
-  searchControl = new FormControl('');
+  changingUserNameControl = this.fb.control({value: '', readOnly: true});
+  searchControl = this.fb.control('');
 
   subs$ = new Subject();
+
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
+  // someMethod() {
+  //   this.trigger.openMenu();
+  // }
 
 
   constructor(
@@ -97,6 +104,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.user.username = this.changingUserNameControl.value;
 
     const [firstName, lastName] = this.user.username.split(' ', 2);
+
+    console.log('firstname');
+    console.log('lastName');
+    console.log(firstName);
+    console.log(lastName);
     this.user.firstName = firstName;
     this.user.lastName = lastName;
 
@@ -104,6 +116,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.changingUserNameControl.patchValue(`${firstName} ${this.nFirstLetterPipe.transform(lastName)}`);
 
     this.changingUserName = false;
+    console.log(this.changingUserName);
+    this.trigger.closeMenu()
   }
 
   ngOnDestroy(): void {
