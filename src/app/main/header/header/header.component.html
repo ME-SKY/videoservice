@@ -49,10 +49,10 @@
                   (click)="$event.stopPropagation();changeName()"
                   >
             <div class="change-name-div">
-              {{'Логин:' + ' '}}
+              {{'Логин: '}}
               <input type="text" inputmode="text" matInput
-                      [formControl]="changingUserNameControl">
-              <button (click)="saveName()">
+                      [formControl]="changingUserNameControl" >
+              <button mat-button (click)="saveName()">
                 OK
               </button>
             </div>
